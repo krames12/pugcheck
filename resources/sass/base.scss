@@ -1,0 +1,206 @@
+body {
+    background-color: #263238;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+h3 {
+    text-align: center;
+    font-size: 1.3em;
+}
+
+h4 {
+    text-align: center;
+    padding: 5px;
+}
+
+p {
+    font-size: 1em;
+}
+
+.container {
+    min-width: 310px;
+    margin: auto;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.title, .title:hover, .title:visited {
+    font-size:1.75em;
+    text-align: center;
+    margin: 10px;
+    font-weight: 300;
+    color: white;
+    text-decoration: none;
+}
+
+.title strong {
+    font-weight: 500;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#search-form {
+    margin-top: 5px;
+}
+
+#search-form input, #search-form label {
+    display: block;
+}
+
+#search-form input[type=text], #region-name {
+    background-color: #263238;
+    border: 1px solid #29679a;
+    padding: 3px;
+}
+
+#search-form label {
+    margin-top: 5px;
+    text-align: left;
+}
+
+#search-form input[type=text] {
+    outline: none;
+    margin-bottom: 10px;
+}
+
+#region-label {
+    float: left;
+}
+
+#region-name {
+    margin: 0px 5px 5px 10px;
+}
+
+#find-character-button {
+    display: block;
+    margin: 20px auto 5px auto;
+    width: 150px;
+    height: 50px;
+    background-color: #263238;
+    border: 1px solid #29679a;
+    transition: all 0.3s ease-in-out;
+}
+
+#find-character-button:hover {
+    background-color: #29679a;
+}
+
+#error-message {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.class-icon {
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.character-info {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.character-name {
+    font-size: 1.4em;
+}
+
+.item-level {
+    display: block;
+}
+
+.item-level {
+    margin-top: 5px;
+    font-weight: 500;
+    font-size: 1.2em;
+}
+
+.raid-instance {
+    margin: 10px auto;
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    border-top: 1px solid #29679a;
+    border-bottom: 1px solid #29679a;
+}
+
+.difficulty {
+    text-align: center;
+    margin: 3px;
+}
+
+.raid-bosses {
+    margin: 0 auto;
+    transition: all 0.2s ease-in-out;
+}
+
+.raid-bosses li {
+    margin: 5px 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.instance-name {
+    text-align: center;
+    font-size: 1em;
+}
+
+.killed-box {
+    color: white;
+    font-size: 1em;
+    margin: 3px;
+}
+
+.logs-header {
+    float: right;
+    margin-top: -30px;
+}
+
+.warcraftlog-report, .warcraftlog-report:hover, .warcraftlog-report:visited, .warcraftlog-report:active {
+    float: right;
+    color: white;
+    text-decoration: none;
+}
+
+.collapse {
+    float: left;
+    text-align: left;
+    margin-top: 10px;
+}
+
+footer {
+    text-align: center;
+    font-size: 0.75em;
+    margin: 10px;
+}
+
+.social-icon, .social-icon:visited {
+    color: white;
+    font-size: 2em;
+    margin: 5px;
+    transition: all 0.2s ease-in-out;
+}
+
+.social-icon:hover, .footer-credit:hover {
+    color: #29679a;
+    text-decoration: none;
+}
+
+.credit {
+    margin-top: 5px;
+}
+
+.footer-credit {
+    color: white;
+    font-weight: 500;
+    transition: all 0.1s ease-in-out;
+}
