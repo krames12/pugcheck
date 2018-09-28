@@ -10,6 +10,6 @@ class SearchController extends Controller
 
     public function search($region, $realm, $character)
     {
-        dd("lololol");
+        return view('character');
     }
 }

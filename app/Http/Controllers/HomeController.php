@@ -15,10 +15,11 @@ class HomeController extends Controller
     // Search
     public function search(Request $request)
     {
-        redirect()->route('search', [
-            'region'    => $request->region,
-            'realm'     => $request->realm,
-            'character' => $request->character
+        $request->validate([
+            'region'    => 'required',
+            'realm'     => 'required',
+            'character' => 'required'
         ]);
+        return redirect("/$request->region/$request->realm/$request->character");
     }
 }
