@@ -55,9 +55,7 @@ a:hover {
 }
 
 #search-form input[type=text], #region-name {
-    background-color: #263238;
-    border: 1px solid #29679a;
-    padding: 3px;
+    padding: 5px;
 }
 
 #search-form label {
@@ -81,8 +79,10 @@ a:hover {
 #find-character-button {
     display: block;
     margin: 20px auto 5px auto;
+    cursor: pointer;
     width: 150px;
     height: 50px;
+    color: white;
     background-color: #263238;
     border: 1px solid #29679a;
     transition: all 0.3s ease-in-out;

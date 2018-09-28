@@ -8,8 +8,8 @@ class SearchController extends Controller
 {
     //
 
-    public function search(Request $request)
+    public function search($region, $realm, $character)
     {
-        dd($request);
+        dd("lololol");
     }
 }
