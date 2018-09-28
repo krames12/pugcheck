@@ -14,7 +14,7 @@ class CreateRealmsTable extends Migration
     public function up()
     {
         Schema::create('realms', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id')->autoIncrement();
             $table->string('name');
             $table->string('slug');
             $table->enum('region', ['us', 'eu']);
