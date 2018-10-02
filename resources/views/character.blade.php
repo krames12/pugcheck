@@ -13,4 +13,34 @@
             <p class="item-level">Item Level: <span class="item-level">{{ $character->items->averageItemLevel }}</span></p>
         </div>
     </div>
+
+    <h3>Raid Progression</h3>
+    {{-- Determine two highest difficulties. --}}
+    @foreach($difficulties as $difficulty)
+        @php
+            $progress = $difficulty != 'Looking For Raid' ? strtolower($difficulty).'Kills' : 'lfrKills';
+            $kills = $progression->$progress;
+        @endphp
+        <div class="raid-instance">
+            <div class="raid-instance-title">
+                <span class="collapse fa fa-plus"></span>
+                <h5 class="instance-name">{{ $progression->name }}</h5>
+                <p class="difficulty">{{ $kills }}/{{ $progression->total_bosses }} {{ $difficulty }}</p>
+                <p class="logs-header">Logs</p>
+            </div>
+            <ul class="raid-bosses">
+                @foreach($progression->bosses as $boss)
+                <li>
+                    {{--@if ( > 0)--}}
+                    {{--<span class="killed-box fa fa-check-square-o"></span>--}}
+                    {{--@else--}}
+                    {{--<span class="killed-box fa fa-square-o"></span>--}}
+                    {{--@endif--}}
+                    {{ $boss->name }}
+                    {{--<a href="{{ attribute(boss, reportUrl) }}" class="warcraftlog-report fa fa-link"></a>--}}
+                </li>
+                @endforeach
+            </ul>
+        </div>
+    @endforeach
 @endsection
