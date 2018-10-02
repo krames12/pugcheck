@@ -4,12 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Realm;
+
 class HomeController extends Controller
 {
     // Home page
     public function show()
     {
-        return view('index');
+        $realms = Realm::all();
+        return view('index', compact('realms'));
     }
 
     // Search
