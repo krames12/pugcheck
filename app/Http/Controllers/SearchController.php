@@ -26,7 +26,7 @@ class SearchController extends Controller
         $formattedProgression->name = $progression->name;
         $formattedProgression->total_bosses = count($progression->bosses);
         $formattedProgression->difficulty = 2;
-        $formattedProgression->highest_difficulty = "Looking For Raid";
+        $formattedProgression->highestDifficulty = "Looking For Raid";
         $formattedProgression->lfrProgress = $this->difficultyProgress('lfr', $progression->bosses);
         $formattedProgression->normalProgress = $this->difficultyProgress('normal', $progression->bosses);
         $formattedProgression->heroicProgress = $this->difficultyProgress('heroic', $progression->bosses);
