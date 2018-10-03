@@ -199,12 +199,12 @@ a:hover {
   margin: 5px;
 }
 
-.difficulty {
+.raid-instance .difficulty {
   text-align: center;
   margin: 3px;
 }
 
-.collapse {
+.raid-instance .collapse {
   cursor: pointer;
 }
 

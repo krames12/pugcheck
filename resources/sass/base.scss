@@ -132,15 +132,14 @@ a:hover {
     h5 {
         margin: 5px;
     }
-}
+    .difficulty {
+        text-align: center;
+        margin: 3px;
+    }
 
-.difficulty {
-    text-align: center;
-    margin: 3px;
-}
-
-.collapse {
-    cursor: pointer;
+    .collapse {
+        cursor: pointer;
+    }
 }
 
 .raid-bosses {

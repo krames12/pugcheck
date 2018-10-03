@@ -32,7 +32,16 @@ class Lookups
     // WarcraftLogs lookup
     public static function apiLogs($characterName, $realmSlug, $region)
     {
-
+        $requestUrl = "https://www.warcraftlogs.com:443/v1/rankings/character/$characterName/$realmSlug/$region?api_key=".env('WARCRAFTLOGS_KEY');
+        $client = new Client();
+        try {
+            $res = $client->request('GET', $requestUrl);
+            return json_decode($res->getBody());
+        } catch (RequestException $e) {
+            if($e->hasResponse()) {
+                return back()->with('error', $e->getResponse()->getReasonPhrase());
+            }
+        }
     }
 
     // Class lookup based on Blizzard class id

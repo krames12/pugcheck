@@ -15,6 +15,8 @@ class SearchController extends Controller
     {
         $realms = Realm::all();
         $character = Lookups::apiCharacter($character, $realm, $region);
+        $logs = Lookups::apiLogs($character->name, $realm, $region);
+        dd($logs);
         $class_name = Lookups::classLookup($character->class);
         // Returns array, but there is only one raid instance we care about.
         $progression = array_where($character->progression->raids, function($value, $key) {
