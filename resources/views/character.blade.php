@@ -18,24 +18,25 @@
     {{-- Determine two highest difficulties. --}}
     @foreach($difficulties as $difficulty)
         @php
-            $progress = $difficulty != 'Looking For Raid' ? strtolower($difficulty).'Kills' : 'lfrKills';
-            $kills = $progression->$progress;
+            $progress = $difficulty != 'Looking For Raid' ? strtolower($difficulty) : 'lfr';
+
+            $kills = $progression->{$progress.'Progress'};
         @endphp
         <div class="raid-instance">
             <div class="raid-instance-title">
-                <span class="collapse fa fa-plus"></span>
+                <span class="collapse fa fa-plus" id="{{ $progress }}-toggle"></span>
                 <h5 class="instance-name">{{ $progression->name }}</h5>
                 <p class="difficulty">{{ $kills }}/{{ $progression->total_bosses }} {{ $difficulty }}</p>
                 <p class="logs-header">Logs</p>
             </div>
-            <ul class="raid-bosses">
+            <ul class="raid-bosses hidden">
                 @foreach($progression->bosses as $boss)
                 <li>
-                    {{--@if ( > 0)--}}
-                    {{--<span class="killed-box fa fa-check-square-o"></span>--}}
-                    {{--@else--}}
-                    {{--<span class="killed-box fa fa-square-o"></span>--}}
-                    {{--@endif--}}
+                    @if ( $boss->{$progress.'Kills'} > 0)
+                    <span class="killed-box far fa-check-square"></span>
+                    @else
+                    <span class="killed-box far fa-square"></span>
+                    @endif
                     {{ $boss->name }}
                     {{--<a href="{{ attribute(boss, reportUrl) }}" class="warcraftlog-report fa fa-link"></a>--}}
                 </li>
@@ -43,4 +44,16 @@
             </ul>
         </div>
     @endforeach
+
+    <script>
+        document.addEventListener('click', event => {
+            if(event.target.classList.contains('collapse')) {
+                let toggleElement = event.target;
+                let bosses = toggleElement.closest('.raid-instance').children[1];
+                bosses.classList.toggle('hidden');
+                event.target.classList.toggle('fa-plus');
+                event.target.classList.toggle('fa-minus');
+            }
+        })
+    </script>
 @endsection

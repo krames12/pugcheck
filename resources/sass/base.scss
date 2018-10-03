@@ -63,7 +63,7 @@ a:hover {
     text-align: left;
 }
 
-#search-form input[type=text] {
+#search-form input[type=text], #search-form select {
     outline: none;
     margin-bottom: 10px;
 }
@@ -129,6 +129,9 @@ a:hover {
     padding: 10px;
     border-top: 1px solid #29679a;
     border-bottom: 1px solid #29679a;
+    h5 {
+        margin: 5px;
+    }
 }
 
 .difficulty {
@@ -136,9 +139,14 @@ a:hover {
     margin: 3px;
 }
 
+.collapse {
+    cursor: pointer;
+}
+
 .raid-bosses {
     margin: 0 auto;
     transition: all 0.2s ease-in-out;
+    list-style: none;
 }
 
 .raid-bosses li {

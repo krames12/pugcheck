@@ -125,7 +125,8 @@ a:hover {
   text-align: left;
 }
 
-#search-form input[type=text] {
+#search-form input[type=text],
+#search-form select {
   outline: none;
   margin-bottom: 10px;
 }
@@ -194,15 +195,24 @@ a:hover {
   border-bottom: 1px solid #29679a;
 }
 
+.raid-instance h5 {
+  margin: 5px;
+}
+
 .difficulty {
   text-align: center;
   margin: 3px;
+}
+
+.collapse {
+  cursor: pointer;
 }
 
 .raid-bosses {
   margin: 0 auto;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
+  list-style: none;
 }
 
 .raid-bosses li {
