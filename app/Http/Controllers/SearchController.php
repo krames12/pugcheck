@@ -16,7 +16,6 @@ class SearchController extends Controller
         $realms = Realm::all();
         $character = Lookups::apiCharacter($character, $realm, $region);
         $logs = Lookups::apiLogs($character->name, $realm, $region);
-        dd($logs);
         $class_name = Lookups::classLookup($character->class);
         // Returns array, but there is only one raid instance we care about.
         $progression = array_where($character->progression->raids, function($value, $key) {
@@ -45,6 +44,23 @@ class SearchController extends Controller
             } else if($boss->normalKills > 0 && $formattedProgression->difficulty < 3) {
                 $formattedProgression->difficulty = 3;
                 $formattedProgression->highestDifficulty = 'Normal';
+            }
+
+            foreach($logs as $log) {
+                if($boss->name == $log->encounterName) {
+                    if($log->difficulty == 5) {
+                        $boss->mythicLogUrl = "https://www.warcraftlogs.com/reports/$log->reportID#fight=$log->fightID";
+                    }
+                    if($log->difficulty == 4) {
+                        $boss->heroicLogUrl = "https://www.warcraftlogs.com/reports/$log->reportID#fight=$log->fightID";
+                    }
+                    if($log->difficulty == 3) {
+                        $boss->normalLogUrl = "https://www.warcraftlogs.com/reports/$log->reportID#fight=$log->fightID";
+                    }
+                    if($log->difficulty == 2) {
+                        $boss->lfrLogUrl = "https://www.warcraftlogs.com/reports/$log->reportID#fight=$log->fightID";
+                    }
+                }
             }
         }
 

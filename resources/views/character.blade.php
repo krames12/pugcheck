@@ -38,7 +38,9 @@
                     <span class="killed-box far fa-square"></span>
                     @endif
                     {{ $boss->name }}
-                    {{--<a href="{{ attribute(boss, reportUrl) }}" class="warcraftlog-report fa fa-link"></a>--}}
+                    @if(isset($boss->{$progress.'LogUrl'}))
+                    <a href="{{ $boss->{$progress.'LogUrl'} }}" class="warcraftlog-report fa fa-link"></a>
+                    @endif
                 </li>
                 @endforeach
             </ul>
