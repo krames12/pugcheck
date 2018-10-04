@@ -1,0 +1,47 @@
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    #search-form {
+        margin-top: 5px;
+        input, label {
+            display: block;
+        }
+        label#region-label {
+            display: inline-block;
+        }
+        input[type=text], select, #region-name {
+            padding: 5px;
+            outline: none;
+            margin-bottom: 10px;
+        }
+        label {
+            margin-top: 5px;
+            text-align: left;
+        }
+        #realm-select {
+            width: 100%;
+        }
+    }
+}
+
+#region-name {
+    margin: 0px 5px 5px 10px;
+    display: inline-block;
+}
+
+#find-character-button {
+    display: block;
+    margin: 20px auto 5px auto;
+    cursor: pointer;
+    width: 150px;
+    height: 50px;
+    color: white;
+    background-color: #263238;
+    border: 1px solid #29679a;
+    transition: all 0.2s ease-in-out;
+}
+
+#find-character-button:hover {
+    background-color: #29679a;
+}

@@ -41,58 +41,6 @@ a:hover {
     font-weight: 500;
 }
 
-.search-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#search-form {
-    margin-top: 5px;
-}
-
-#search-form input, #search-form label {
-    display: block;
-}
-
-#search-form input[type=text], #region-name {
-    padding: 5px;
-}
-
-#search-form label {
-    margin-top: 5px;
-    text-align: left;
-}
-
-#search-form input[type=text], #search-form select {
-    outline: none;
-    margin-bottom: 10px;
-}
-
-#region-label {
-    float: left;
-}
-
-#region-name {
-    margin: 0px 5px 5px 10px;
-}
-
-#find-character-button {
-    display: block;
-    margin: 20px auto 5px auto;
-    cursor: pointer;
-    width: 150px;
-    height: 50px;
-    color: white;
-    background-color: #263238;
-    border: 1px solid #29679a;
-    transition: all 0.3s ease-in-out;
-}
-
-#find-character-button:hover {
-    background-color: #29679a;
-}
-
 #error-message {
     text-align: center;
     margin-top: 20px;
