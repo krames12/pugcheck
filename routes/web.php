@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', 'HomeController@show');
+Route::get('/', 'HomeController@show')->name('home');
 Route::post('/', 'HomeController@search');
 Route::get('/{region}/{realm}/{character}', 'SearchController@search')->name('search');

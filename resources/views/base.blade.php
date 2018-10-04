@@ -15,7 +15,6 @@
 <body>
     <h1 class="title"><a href="/"><strong>Pug</strong>Check</a></h1>
     <div class="container">
-        @include('partials.messages')
         @yield('content')
     </div>
 

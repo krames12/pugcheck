@@ -233,6 +233,10 @@ footer {
   transition: all 0.1s ease-in-out;
 }
 
+.message-box {
+  color: #e3342f;
+}
+
 .search-container {
   display: -webkit-box;
   display: -ms-flexbox;

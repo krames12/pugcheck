@@ -16,6 +16,9 @@ class SearchController extends Controller
         $realms = Realm::orderBy('slug')->get();
 
         $character = Lookups::apiCharacter($character, $realm, $region);
+        if(!isset($character->name)) {
+            return redirect()->to('/')->with('error', $character);
+        }
         $logs = Lookups::apiLogs($character->name, $realm, $region);
         $class_name = Lookups::classLookup($character->class);
         // Returns array, but there is only one raid instance we care about.

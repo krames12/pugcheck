@@ -22,6 +22,7 @@
                 <option value="eu">EU</option>
             </select>
         </div>
+        @include('partials.messages')
         <button type="submit" name="find_character" id="find-character-button">Find Character</button>
     </form>
 </section>

@@ -24,7 +24,7 @@ class Lookups
             return json_decode($res->getBody());
         } catch (RequestException $e) {
             if($e->hasResponse()) {
-                return back()->with('error', $e->getResponse()->getReasonPhrase());
+                return $e->getResponse()->getReasonPhrase();
             }
         }
     }
@@ -39,7 +39,7 @@ class Lookups
             return json_decode($res->getBody());
         } catch (RequestException $e) {
             if($e->hasResponse()) {
-                return back()->with('error', $e->getResponse()->getReasonPhrase());
+                return redirect()->route('home')->with('error', $e->getResponse()->getReasonPhrase());
             }
         }
     }
