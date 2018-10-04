@@ -13,7 +13,8 @@ class SearchController extends Controller
 
     public function search($region, $realm, $character)
     {
-        $realms = Realm::all();
+        $realms = Realm::orderBy('slug')->get();
+
         $character = Lookups::apiCharacter($character, $realm, $region);
         $logs = Lookups::apiLogs($character->name, $realm, $region);
         $class_name = Lookups::classLookup($character->class);

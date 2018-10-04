@@ -11,8 +11,8 @@ class HomeController extends Controller
     // Home page
     public function show()
     {
-        $realms = Realm::all();
-        return view('index', compact('realms'));
+        $realms = Realm::orderBy('slug')->get();
+        return view('index', compact(['realms']));
     }
 
     // Search

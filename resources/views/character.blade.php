@@ -49,16 +49,4 @@
             </ul>
         </div>
     @endforeach
-
-    <script>
-        document.addEventListener('click', event => {
-            if(event.target.classList.contains('collapse')) {
-                let toggleElement = event.target;
-                let bosses = toggleElement.closest('.raid-instance').children[1];
-                bosses.classList.toggle('hidden');
-                event.target.classList.toggle('fa-plus');
-                event.target.classList.toggle('fa-minus');
-            }
-        })
-    </script>
 @endsection

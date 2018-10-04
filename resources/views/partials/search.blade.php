@@ -5,9 +5,13 @@
         <input type="text" name="character" id="character-name" />
         <div>
             <label for="realm-select">Realm Name</label>
-            <select name="realm" id="realm-select">
+            <select name="realm" class="realm-select" id="us-realm-select">
                 @foreach($realms as $realm)
-                    <option value="{{ $realm->slug }}">{{ $realm->name }}</option>
+                    <option value="{{ $realm->slug }}"
+                            class="realm-option {{ $realm->region == 'eu' ? 'hidden' : '' }}"
+                    >
+                        {{ $realm->name }}
+                    </option>
                 @endforeach
             </select>
         </div>

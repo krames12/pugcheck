@@ -20,7 +20,27 @@
     </div>
 
     <script src="{{ asset('js/app.js') }}"></script>
-    <script>var whTooltips = {colorLinks: true, iconizeLinks: true, renameLinks: true};</script>
+    <script>
+        // Wowhead Tooltips
+        var whTooltips = {colorLinks: true, iconizeLinks: true, renameLinks: true};
+
+        document.addEventListener('click', event => {
+            if(event.target.classList.contains('collapse')) {
+                let toggleElement = event.target;
+                let bosses = toggleElement.closest('.raid-instance').children[1];
+                bosses.classList.toggle('hidden');
+                event.target.classList.toggle('fa-plus');
+                event.target.classList.toggle('fa-minus');
+            }
+        });
+
+        document.getElementById('region-name').addEventListener('change', event => {
+            let realmOptions = document.getElementsByClassName('realm-option');
+            for(let option of realmOptions) {
+                option.classList.toggle('hidden');
+            }
+        });
+    </script>
     <script src="http://wow.zamimg.com/widgets/power.js"></script>
 
     @include('partials.footer')

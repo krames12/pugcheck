@@ -19,8 +19,8 @@
             margin-top: 5px;
             text-align: left;
         }
-        #realm-select {
-            width: 100%;
+        .realm-select, input[type=text] {
+            max-width: 380px;
         }
     }
 }
