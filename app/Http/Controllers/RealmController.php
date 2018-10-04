@@ -16,7 +16,7 @@ class RealmController extends Controller
             $realms = json_decode($res->getBody());
             foreach($realms->realms as $realm)
             {
-                $realmExists = Realm::where([['name', '=', $realm->name], ['slug', '=', $realm->slug]])->first();
+                $realmExists = Realm::where([['name', '=', $realm->name], ['slug', '=', $realm->slug], ['region', '=', 'us']])->first();
                 if($realmExists === null) {
                     $newRealm = new Realm();
                     $newRealm->name = $realm->name;
@@ -43,7 +43,7 @@ class RealmController extends Controller
             $realms = json_decode($res->getBody());
             foreach($realms->realms as $realm)
             {
-                $realmExists = Realm::where([['name', '=', $realm->name], ['slug', '=', $realm->slug]])->first();
+                $realmExists = Realm::where([['name', '=', $realm->name], ['slug', '=', $realm->slug], ['region', '=', 'eu']])->first();
                 if($realmExists === null) {
                     $newRealm = new Realm();
                     $newRealm->name = $realm->name;

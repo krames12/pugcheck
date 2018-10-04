@@ -13,7 +13,7 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 </head>
 <body>
-    <a href="/"><h1 class="title"><strong>Pug</strong>Check</h1></a>
+    <h1 class="title"><a href="/"><strong>Pug</strong>Check</a></h1>
     <div class="container">
         @include('partials.messages')
         @yield('content')

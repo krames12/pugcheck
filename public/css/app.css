@@ -85,8 +85,13 @@ a:hover {
 .title:visited {
   font-size: 1.75em;
   text-align: center;
-  margin: 10px;
   font-weight: 300;
+}
+
+.title a,
+.title:hover a,
+.title:visited a {
+  margin: 10px;
   color: white;
   text-decoration: none;
 }
