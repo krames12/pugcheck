@@ -7,6 +7,7 @@ body {
 h3 {
     text-align: center;
     font-size: 1.3em;
+    font-weight: 500;
 }
 
 h4 {
@@ -110,16 +111,14 @@ a:hover {
 
 .character-name {
     font-size: 1.4em;
+    margin-bottom: 5px;
 }
 
 .item-level {
-    display: block;
-}
-
-.item-level {
-    margin-top: 5px;
+    margin-top: 2px;
+    margin-bottom: 5px;
     font-weight: 500;
-    font-size: 1.2em;
+    font-size: 1.3em;
 }
 
 .raid-instance {
@@ -144,12 +143,17 @@ a:hover {
 
 .raid-bosses {
     margin: 0 auto;
+    padding: 5px;
     transition: all 0.2s ease-in-out;
     list-style: none;
 }
 
 .raid-bosses li {
     margin: 5px 0;
+}
+
+.placeholder-icon-spot {
+    margin: 0 11px;
 }
 
 .hidden {
@@ -173,7 +177,6 @@ a:hover {
 }
 
 .warcraftlog-report, .warcraftlog-report:hover, .warcraftlog-report:visited, .warcraftlog-report:active {
-    float: right;
     color: white;
     text-decoration: none;
 }
@@ -187,7 +190,8 @@ a:hover {
 footer {
     text-align: center;
     font-size: 0.75em;
-    margin: 10px;
+    margin: 20px;
+    padding: 5px;
 }
 
 .social-icon, .social-icon:visited {

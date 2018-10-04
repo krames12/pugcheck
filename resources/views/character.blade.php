@@ -5,16 +5,16 @@
 
     <div class="character-info">
         <p class="character-name">{{ $character->name }}</p>
+        <p><span class="item-level">{{ $character->items->averageItemLevel }}</span></p>
         <img src="{{ asset('images').'/'.$class_name.'.png' }}"
              alt="{{ $class_name }} symbol"
              class="class-icon {{ $class_name }}"
         />
-        <div class="item-level-container">
-            <p class="item-level">Item Level: <span class="item-level">{{ $character->items->averageItemLevel }}</span></p>
-        </div>
+    </div>
+    <div class="expansion-relevant-info">
+
     </div>
 
-    <h3>Raid Progression</h3>
     {{-- Determine two highest difficulties. --}}
     @foreach($difficulties as $difficulty)
         @php
@@ -27,7 +27,6 @@
                 <span class="collapse fa fa-plus" id="{{ $progress }}-toggle"></span>
                 <h5 class="instance-name">{{ $progression->name }}</h5>
                 <p class="difficulty">{{ $kills }}/{{ $progression->total_bosses }} {{ $difficulty }}</p>
-                <p class="logs-header">Logs</p>
             </div>
             <ul class="raid-bosses hidden">
                 @foreach($progression->bosses as $boss)
@@ -37,10 +36,14 @@
                     @else
                     <span class="killed-box far fa-square"></span>
                     @endif
+                        @if(isset($boss->{$progress.'LogUrl'}))
+                            <a href="{{ $boss->{$progress.'LogUrl'} }}"
+                               alt="Link to Warcraftlogs"
+                               class="warcraftlog-report far fa-chart-bar"></a>
+                        @else
+                            <span class="placeholder-icon-spot"></span>
+                        @endif
                     {{ $boss->name }}
-                    @if(isset($boss->{$progress.'LogUrl'}))
-                    <a href="{{ $boss->{$progress.'LogUrl'} }}" class="warcraftlog-report fa fa-link"></a>
-                    @endif
                 </li>
                 @endforeach
             </ul>
