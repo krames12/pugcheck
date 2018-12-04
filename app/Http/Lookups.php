@@ -11,14 +11,22 @@ namespace App\Http;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\Exception\RequestException;
+use App\Http\BlizzardOAuth2;
 
 class Lookups
 {
     // Blizzard API character lookup
     public static function apiCharacter($characterName, $realmSlug, $region)
     {
-        $requestUrl = "https://$region.api.battle.net/wow/character/$realmSlug/$characterName?fields=items,progression&locale=en_US&apikey=".env('BLIZZARD_KEY');
-        $client = new Client();
+        $requestUrl = "https://$region.api.blizzard.com/wow/character/$realmSlug/$characterName?fields=items,progression&locale=en_US";
+
+        $bnet = new BlizzardOAuth2();
+        $authToken = $bnet->oAuthTokenGenerator();
+
+        $client = new Client([
+            'handler' => $authToken,
+            'auth' => 'oauth',
+        ]);
         try {
             $res = $client->request('GET', $requestUrl);
             return json_decode($res->getBody());
