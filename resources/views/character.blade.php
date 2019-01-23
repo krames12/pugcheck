@@ -15,38 +15,40 @@
 
     </div>
 
-    {{-- Determine two highest difficulties. --}}
-    @foreach($difficulties as $difficulty)
-        @php
-            $progress = $difficulty != 'Looking For Raid' ? strtolower($difficulty) : 'lfr';
+    @foreach($progression as $raid)
+        {{-- Determine two highest difficulties. --}}
+        @foreach($raid->difficulties as $difficulty)
+            @php
+                $progress = $difficulty != 'Looking For Raid' ? strtolower($difficulty) : 'lfr';
 
-            $kills = $progression->{$progress.'Progress'};
-        @endphp
-        <div class="raid-instance">
-            <div class="raid-instance-title">
-                <span class="collapse fa fa-plus" id="{{ $progress }}-toggle"></span>
-                <h5 class="instance-name">{{ $progression->name }}</h5>
-                <p class="difficulty">{{ $kills }}/{{ $progression->total_bosses }} {{ $difficulty }}</p>
+                $kills = $raid->{$progress.'Progress'};
+            @endphp
+            <div class="raid-instance">
+                <div class="raid-instance-title">
+                    <span class="collapse fa fa-plus" id="{{ $progress }}-toggle"></span>
+                    <h5 class="instance-name">{{ $raid->name }}</h5>
+                    <p class="difficulty">{{ $kills }}/{{ $raid->total_bosses }} {{ $difficulty }}</p>
+                </div>
+                <ul class="raid-bosses hidden">
+                    @foreach($raid->bosses as $boss)
+                        <li>
+                            @if ( $boss->{$progress.'Kills'} > 0)
+                                <span class="killed-box far fa-check-square"></span>
+                            @else
+                                <span class="killed-box far fa-square"></span>
+                            @endif
+                            @if(isset($boss->{$progress.'LogUrl'}))
+                                <a href="{{ $boss->{$progress.'LogUrl'} }}"
+                                   alt="Link to Warcraftlogs"
+                                   class="warcraftlog-report far fa-chart-bar"></a>
+                            @else
+                                <span class="placeholder-icon-spot"></span>
+                            @endif
+                            {{ $boss->name }}
+                        </li>
+                    @endforeach
+                </ul>
             </div>
-            <ul class="raid-bosses hidden">
-                @foreach($progression->bosses as $boss)
-                <li>
-                    @if ( $boss->{$progress.'Kills'} > 0)
-                    <span class="killed-box far fa-check-square"></span>
-                    @else
-                    <span class="killed-box far fa-square"></span>
-                    @endif
-                        @if(isset($boss->{$progress.'LogUrl'}))
-                            <a href="{{ $boss->{$progress.'LogUrl'} }}"
-                               alt="Link to Warcraftlogs"
-                               class="warcraftlog-report far fa-chart-bar"></a>
-                        @else
-                            <span class="placeholder-icon-spot"></span>
-                        @endif
-                    {{ $boss->name }}
-                </li>
-                @endforeach
-            </ul>
-        </div>
+        @endforeach
     @endforeach
 @endsection

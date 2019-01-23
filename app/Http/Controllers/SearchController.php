@@ -37,7 +37,7 @@ class SearchController extends Controller
             $formattedProgression->normalProgress = $this->difficultyProgress('normal', $raid->bosses);
             $formattedProgression->heroicProgress = $this->difficultyProgress('heroic', $raid->bosses);
             $formattedProgression->mythicProgress = $this->difficultyProgress('mythic', $raid->bosses);
-            $formattedProgression->bosses = $progression->bosses;
+            $formattedProgression->bosses = $raid->bosses;
 
             foreach ($raid->bosses as $boss) {
                 if ($boss->mythicKills > 0) {
@@ -69,19 +69,18 @@ class SearchController extends Controller
                 }
             }
 
-            $difficulties = array();
-            switch($raid->highestDifficulty) {
+            switch($formattedProgression->highestDifficulty) {
                 case("Mythic"):
-                    $raid->difficulties = ['Mythic', 'Heroic'];
+                    $formattedProgression->difficulties = ['Mythic', 'Heroic'];
                     break;
                 case("Heroic"):
-                    $raid->difficulties = ['Heroic', 'Normal'];
+                    $formattedProgression->difficulties = ['Heroic', 'Normal'];
                     break;
                 case("Normal"):
-                    $raid->difficulties = ['Normal', 'Looking For Raid'];
+                    $formattedProgression->difficulties = ['Normal', 'Looking For Raid'];
                     break;
                 case("Looking For Raid"):
-                    $raid->difficulties = ['Looking For Raid'];
+                    $formattedProgression->difficulties = ['Looking For Raid'];
                     break;
             }
             $progression[] = $formattedProgression;
