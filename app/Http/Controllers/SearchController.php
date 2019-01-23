@@ -23,7 +23,7 @@ class SearchController extends Controller
         $class_name = Lookups::classLookup($character->class);
         // Returns array, but there is only one raid instance we care about.
         $progression = array_where($character->progression->raids, function($value, $key) {
-            return $value->name == "Uldir";
+            return $value->name == "Uldir" || $value->name == "Battle of Dazar'alor";
         });
         $progression = array_pop($progression);
 
