@@ -17,6 +17,7 @@
 
     @foreach($progression as $raid)
         {{-- Determine two highest difficulties. --}}
+        <h4 class="instance-name">{{ $raid->name }}</h4>
         @foreach($raid->difficulties as $difficulty)
             @php
                 $progress = $difficulty != 'Looking For Raid' ? strtolower($difficulty) : 'lfr';
@@ -26,7 +27,6 @@
             <div class="raid-instance">
                 <div class="raid-instance-title">
                     <span class="collapse fa fa-plus" id="{{ $progress }}-toggle"></span>
-                    <h5 class="instance-name">{{ $raid->name }}</h5>
                     <p class="difficulty">{{ $kills }}/{{ $raid->total_bosses }} {{ $difficulty }}</p>
                 </div>
                 <ul class="raid-bosses hidden">
